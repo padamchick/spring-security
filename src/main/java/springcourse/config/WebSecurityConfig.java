@@ -29,12 +29,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/").hasRole("EMPLOYEE")
                     .antMatchers("/leaders/**").hasRole("MANAGER")
                     .antMatchers("/systems/**").hasRole("ADMIN")
+                    .antMatchers("/resources/**").permitAll()
                 .and()
                 .formLogin()
                     .loginPage("/showMyLoginPage")
                     .loginProcessingUrl("/authenticateTheUser")
                     .permitAll()
                 .and()
-                    .logout().permitAll();
+                    .logout().permitAll()
+                .and()
+                    .exceptionHandling()
+                    .accessDeniedPage("/access-denied");
+
     }
 }
