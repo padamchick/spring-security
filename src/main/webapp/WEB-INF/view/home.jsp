@@ -15,13 +15,17 @@
 <p>You're now logged as <security:authentication property="principal.authorities"/></p>
 <hr>
 <%--Contant for managers--%>
-<p>
-    <a href="${pageContext.request.contextPath}/leaders">Managers panel</a>
-</p>
-<p>
-    <a href="${pageContext.request.contextPath}/systems">Admins page</a>
-</p>
-<hr>
+<security:authorize access="hasRole('MANAGER')">
+    <p>
+        <a href="${pageContext.request.contextPath}/leaders">Managers panel</a>
+    </p>
+</security:authorize>
+<security:authorize access="hasRole('ADMIN')">
+    <p>
+        <a href="${pageContext.request.contextPath}/systems">Admins page</a>
+    </p>
+</security:authorize>
+
 
 <%--Add a logout button--%>
 <form:form action="${pageContext.request.contextPath}/logout" method="post">
