@@ -54,13 +54,13 @@
 
                                 </c:if>
 
-<%--                                Check for logout--%>
+                                    <%--                                Check for logout--%>
 
-								<c:if test="${param.logout != null}">
-									<div class="alert alert-success col-xs-offset-1 col-xs-10">
-										You have been logged out.
-									</div>
-								</c:if>
+                                <c:if test="${param.logout != null}">
+                                    <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                                        You have been logged out.
+                                    </div>
+                                </c:if>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,10 @@
                             <button type="submit" class="btn btn-success">Login</button>
                         </div>
                     </div>
-
+                    <%--                    That's how to manually add csrf token--%>
+<%--                    <input type="hidden"--%>
+<%--                           name="${_csrf.parameterName}"--%>
+<%--                           value="${_csrf.token}"/>--%>
                 </form:form>
 
             </div>
